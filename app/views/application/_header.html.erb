@@ -13,7 +13,18 @@
   <!-- Collection of nav links, forms, and other content for toggling -->
   <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
     <ul class="nav navbar-nav">
-      <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+      <% if user_signed_in? %>
+        <li class="nav-item"><a href="#" class="nav-link">Upload</a></li>
+      <% else %>
+        <li class="nav-item">
+          <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Upload</a>
+          <ul class="dropdown-menu form-wrapper">
+            <li>
+              <%= render 'login_form' %>
+            </li>
+          </ul>
+        </li>
+      <% end %>
     </ul>
     <ul class="nav navbar-nav navbar-right ml-auto">
       <% if user_signed_in? %>
