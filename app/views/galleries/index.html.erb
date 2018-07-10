@@ -7,7 +7,7 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th>Owner</th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', default: t("helpers.actions") %></th>
     </tr>
@@ -17,7 +17,7 @@
       <tr>
         <td><%= gallery.id %></td>
           <td><%= gallery.title %></td>
-          <td><%= gallery.user_id %></td>
+          <td><%= gallery.owner %></td>
         <td><%=l gallery.created_at, format: :long %></td>
         <td>
           <%= link_to gallery_path(gallery), class: 'btn btn-xs', title: "#{ t('.show', default: t('helpers.links.show')) }" do %>
