@@ -1,0 +1,33 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-group social-btn clearfix">
+    <a href="#" class="btn btn-primary pull-left"><i class="fa fa-facebook"></i> Facebook</a>
+    <a href="#" class="btn btn-info pull-right"><i class="fa fa-twitter"></i> Twitter</a>
+  </div>
+
+  <div class="or-seperator"><b>or</b></div>
+
+  <div class="form-group">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.password_field :password, autocomplete: "off", placeholder: "Passwrod", class: "form-control" %>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="form-group">
+      <label class="checkbox-inline">
+        <%= f.check_box :remember_me %>
+        Remember me
+      </label>
+    </div>
+  <% end -%>
+
+  <div class="actions">
+    <%= f.submit "Login", class: "btn btn-primary btn-block" %>
+  </div>
+<% end %>
+<div class="form-footer">
+  <%= render "devise/shared/links" %>
+</div>
+
