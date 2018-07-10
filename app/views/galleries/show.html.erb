@@ -12,6 +12,9 @@
   </dl>
 </div>
 
+<% @gallery.pictures.each do |picture| %>
+  <%= image_tag picture %>
+<% end %>
 <div class="form-group">
   <%= link_to t('.back', default: t("helpers.links.back")),
               galleries_path, class: 'btn btn-default'  %>
