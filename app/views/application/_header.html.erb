@@ -1,24 +1,66 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Gallery</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Upload <span class="sr-only">(current)</span></a>
-      </li>
-    </ul>
+<nav class="navbar navbar-default navbar-expand-lg navbar-light">
+  <div class="navbar-header d-flex col">
+    <a class="navbar-brand" href="#">Revo<b>Gallery</b></a>     
+    <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle navbar-toggler ml-auto">
+      <span class="navbar-toggler-icon"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
   </div>
-
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav ml-auto">
+  <!-- Collection of nav links, forms, and other content for toggling -->
+  <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+    <ul class="nav navbar-nav">
+      <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right ml-auto">      
       <li class="nav-item">
-        <a class="nav-link hvr-underline-from-center" href="#">Apps</a>
+        <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Login</a>
+        <ul class="dropdown-menu form-wrapper">         
+          <li>
+            <form action="/examples/actions/confirmation.php" method="post">
+              <p class="hint-text">Sign in with your social media account</p>
+              <div class="form-group social-btn clearfix">
+                <a href="#" class="btn btn-primary pull-left"><i class="fa fa-facebook"></i> Facebook</a>
+                <a href="#" class="btn btn-info pull-right"><i class="fa fa-twitter"></i> Twitter</a>
+              </div>
+              <div class="or-seperator"><b>or</b></div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Username" required="required">
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" placeholder="Password" required="required">
+              </div>
+              <input type="submit" class="btn btn-primary btn-block" value="Login">
+              <div class="form-footer">
+                <a href="#">Forgot Your password?</a>
+              </div>
+            </form>
+          </li>
+        </ul>
       </li>
       <li class="nav-item">
-        <a class="nav-link hvr-underline-from-center" href="#">Contact</a>
+        <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Sign up</a>
+        <ul class="dropdown-menu form-wrapper">         
+          <li>
+            <form action="/examples/actions/confirmation.php" method="post">
+              <p class="hint-text">Fill in this form to create your account!</p>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Username" required="required">
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" placeholder="Password" required="required">
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" placeholder="Confirm Password" required="required">
+              </div>
+              <div class="form-group">
+                <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms &amp; Conditions</a></label>
+              </div>
+              <input type="submit" class="btn btn-primary btn-block" value="Sign up">
+            </form>
+          </li>
+        </ul>
       </li>
     </ul>
   </div>
