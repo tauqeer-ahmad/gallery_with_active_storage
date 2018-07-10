@@ -1,27 +1,22 @@
-<%= form_with(model: gallery, local: true) do |form| %>
-  <% if gallery.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(gallery.errors.count, "error") %> prohibited this gallery from being saved:</h2>
-
-      <ul>
-      <% gallery.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for @gallery, html: { class: 'form-horizontal' } do |f| %>
+  <div class="form-group">
+    <%= f.label :title, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :title, class: 'text_field form-control' %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  </div>
+  <div class="form-group">
+    <%= f.label :user_id, class: 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :user_id, class: 'text_field form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, class: 'btn btn-primary' %>
+      <%= link_to t('.cancel', default: t("helpers.links.cancel")),
+                  galleries_path, class: 'btn btn-default' %>
+    </div>
   </div>
 <% end %>
