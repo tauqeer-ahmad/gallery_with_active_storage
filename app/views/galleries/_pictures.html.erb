@@ -1,0 +1,19 @@
+<% gallery.pictures.each do |picture| %>
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <% if picture.previewable? %>
+        <%= link_to(image_tag(attachment.preview(resize: "400x400")),  rails_blob_path(picture, disposition: "attachment"))
+        %>
+      <% elsif picture.variable? %>
+        <%= link_to(image_tag(picture.variant(resize: "400x400")), rails_blob_path(picture, disposition: "attachment"))%>
+      <% else %>
+        <%= link_to "Download file", rails_blob_path(picture, disposition: "attachment") %>
+      <% end %>
+      <div class="caption">
+        <%= link_to destroy_picture_gallery_path(picture), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' do %>
+          <i class="glyphicon glyphicon-trash"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
