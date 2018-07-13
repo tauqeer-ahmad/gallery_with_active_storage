@@ -46,6 +46,12 @@ class GalleriesController < ApplicationController
     end
   end
 
+  def destroy_picture
+    @picture = ActiveStorage::Attachment.find(params[:id])
+    @picture.purge
+    redirect_back(fallback_location: galleries_path)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_gallery
